@@ -10,18 +10,30 @@
 local composer = require( "composer" )
 local scene = composer.newScene()
 display.setStatusBar( display.HiddenStatusBar ) 
+
+-- Sets the background
 local background = display.newRect( 0, 0, display.contentWidth, display.contentHeight )
 background.anchorX = 0
 background.anchorY = 0
 background:setFillColor( .98 )
+
+-- This block variable is used to generate the points in line with the display width/height
 local block = display.contentWidth / 20
+
+-- The dama object (ball)
 local dama = display.newImageRect( "Dama.png", 40, 40 )
 dama.x, dama.y = 160, 325
+
+-- The ken object (cups)
 local ken = display.newImageRect( "Ken.png", block * 4, block * 8 )
 ken.anchorX = 0.5
 ken.anchorY = 0.25
+
+-- Text to display what collision is occuring
 local text = display.newText( "", 160, 40, native.systemFontBold, 12 )
 text:setFillColor(0, 0, 0)
+
+-- Test lines array (table) to hold the rendered lines
 local testLines = {}
 
 -----------------------------------------------------------------------------------------------------------------------
